@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class Scene_Manager : SingletonMonoBehaviour<Scene_Manager>
 {
+    Scene[] scenes;
+
+    const string scene_build_path = "Assets/Scenes";
+
     private void Awake()
     {
         if (this != Instance)
@@ -13,6 +19,7 @@ public class Scene_Manager : SingletonMonoBehaviour<Scene_Manager>
             return;
         }
         DontDestroyOnLoad(gameObject);
+
     }
 
     public void ChangeScene(string sceneName)
@@ -29,5 +36,6 @@ public class Scene_Manager : SingletonMonoBehaviour<Scene_Manager>
     {
         return SceneManager.GetActiveScene();
     }
+
 
 }
